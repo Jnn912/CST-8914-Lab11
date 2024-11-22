@@ -1,55 +1,51 @@
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  margin: 50px auto;
 }
 
-.accordion {
-  background-color: #f4f4f4;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
+button.accordion {
   width: 100%;
-  text-align: left;
+  background-color: whitesmoke;
   border: none;
   outline: none;
-  transition: 0.4s;
-  margin-bottom: 1px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.1em;
+  text-align: left;
+  padding: 15px 20px;
+  font-size: 18px;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s linear;
 }
 
-.accordion:hover {
+
+button.accordion:after {
+  font-family: FontAwesome;
+  content: "\f150";
+  font-size: 18px;
+  float: right;
+}
+
+button.accordion.is-open:after {
+  content: "\f151";
+}
+
+button.accordion:hover,
+button.accordion.is-open {
   background-color: #ddd;
 }
 
-.accordion.active {
-  background-color: #ccc;
-}
 
-.accordion:focus {
+button.accordion:focus {
   outline: 2px solid #3ab14a;
   outline-offset: -2px;
 }
 
-.accordion i {
-  transition: transform 0.4s ease;
-}
-
-.accordion.active i {
-  transform: rotate(180deg);
-}
-
 .accordion-content {
-  padding: 0 18px;
-  display: none;
   background-color: white;
+  border-left: 1px solid whitesmoke;
+  border-right: 1px solid whitesmoke;
+  padding: 0 20px;
+  max-height: 0;
   overflow: hidden;
-}
-
-.accordion-content.show {
-  display: block;
-  padding: 18px;
+  transition: max-height 0.2s ease-in-out;
 }
